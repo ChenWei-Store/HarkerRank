@@ -1,12 +1,17 @@
 package dataStructures.linkedlist.utils;
 
-import dataStructures.linkedlist.utils.LinkedList.Node;
+import dataStructures.linkedlist.model.LinkedList;
+import dataStructures.linkedlist.model.LinkedList.Node;
 
 
 /**
  * Created by chenw on 2017/6/25.
  */
 public class ReverseUtils {
+    /**
+     * 递归实现
+     * @param linkedList
+     */
     public static void reverse(LinkedList linkedList){
         if(linkedList == null){
             return ;

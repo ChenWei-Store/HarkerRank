@@ -1,4 +1,5 @@
-package dataStructures.linkedlist.utils;
+package dataStructures.linkedlist.model;
+
 
 /**
  * Created by chenw on 2017/6/24.
@@ -17,6 +18,12 @@ public class LinkedList {
         lastNode = head;
         count++;
     }
+
+    public class Node{
+        public int data;
+        public Node next;
+    }
+
 
     public void insertLast(int element){
         if(count == 0){
@@ -96,6 +103,23 @@ public class LinkedList {
         count--;
     }
 
+    public void removeRepeatData(){
+        Node node = head;
+        int data = head.data;
+
+        while (node.next != null){
+            Node nextNode = node.next;
+            if(nextNode.data == data){
+                node.next = nextNode.next;
+                count--;
+            }else{
+                data = nextNode.data;
+                node = nextNode;
+            }
+        }
+
+
+    }
     public void printf(){
         Node node = head;
 
@@ -114,14 +138,58 @@ public class LinkedList {
         return preNode;
     }
 
+    /**
+     *
+     * @param posi 1 - n
+     * @return
+     */
+    private Node getNode(int posi){
+        Node node = head;
+        for(int i = 0; i < posi - 1; i++){
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int getNodeData(int posi){
+        return getNode(posi).data;
+    }
+
+    /**
+     *
+     * @param tailPosi 倒数第tailPosi个数
+     * @return
+     */
+    public int getNodeFromTailPosition(int tailPosi){
+        int posi = count - tailPosi + 1;
+        return getNodeData(posi);
+    }
+
     public int size(){
         return count;
     }
 
 
-    class Node{
-        int data;
-        Node next;
+
+    @Override
+    public boolean equals(Object obj) {
+        LinkedList linkedList = (LinkedList)obj;
+        if(linkedList.size() != this.size()){
+            return false;
+        }
+
+        Node thisNode = head;
+        Node anNode = linkedList.head;
+        while (thisNode != null){
+            if(thisNode.data != anNode.data){
+                return false;
+            }
+            thisNode = thisNode.next;
+            anNode = anNode.next;
+
+        }
+
+        return true;
     }
 
     public Node getHead() {

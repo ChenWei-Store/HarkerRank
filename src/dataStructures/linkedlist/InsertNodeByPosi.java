@@ -1,6 +1,6 @@
 package dataStructures.linkedlist;
 
-import dataStructures.linkedlist.utils.LinkedList;
+import dataStructures.linkedlist.model.LinkedList;
 
 /**
  * Created by chenw on 2017/6/24.

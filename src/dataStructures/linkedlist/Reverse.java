@@ -1,6 +1,6 @@
 package dataStructures.linkedlist;
 
-import dataStructures.linkedlist.utils.LinkedList;
+import dataStructures.linkedlist.model.LinkedList;
 import dataStructures.linkedlist.utils.ReverseUtils;
 
 /**
